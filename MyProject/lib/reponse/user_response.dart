@@ -1,13 +1,12 @@
-import 'dart:convert';
-import 'dart:developer';
+
 
 import 'package:dio/dio.dart';
-import 'package:http/http.dart' as http;
 import 'package:myproject/APIS.dart';
-import 'package:myproject/beans/UsersBeans/user_bean.dart';
+import 'package:myproject/models/beans/UsersBeans/user_bean.dart';
+import 'package:myproject/models/comment.dart';
 
-class DioClient {
-  Future<List?> getUsers() async {
+class UserResponse{
+  static Future<List?> getUsers() async {
     // var response = await http.get(Uri.parse(APIS.usersList), headers: {"Accept": "application/json; charset=UTF-8"});
     var response = await Dio().get(APIS.usersList);
     try{
@@ -23,4 +22,6 @@ class DioClient {
       return null;
     }
   }
+
+
 }

@@ -5,11 +5,12 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myproject/APIS.dart';
-import 'package:myproject/DioClient.dart';
-import 'package:myproject/beans/UsersBeans/user_bean.dart';
+
+import 'package:myproject/models/beans/UsersBeans/user_bean.dart';
 import 'package:myproject/counter_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:myproject/reponse/user_response.dart';
 
 
 
@@ -24,7 +25,7 @@ class _UserState extends State<Users> {
   @override
   void initState() {
     super.initState();
-    DioClient().getUsers().then((value) => {
+    UserResponse.getUsers().then((value) => {
       setState(() {
         _data = value?.cast<UserBean>();
       })

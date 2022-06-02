@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:myproject/beans/UsersBeans/user_bean.dart';
+import 'package:myproject/models/beans/UsersBeans/user_bean.dart';
 
 abstract class UserState extends Equatable{
   const UserState();

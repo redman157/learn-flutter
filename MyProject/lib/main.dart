@@ -4,9 +4,11 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:myproject/Movie.dart';
 import 'package:myproject/pages/home_page.dart';
+import 'package:myproject/repository/user_repository.dart';
 import 'package:tmdb_api/tmdb_api.dart';
-
-final tmdbApiKey = TMDB( //TMDB instance
+import 'package:flutter_bloc/flutter_bloc.dart';
+final tmdbApiKey = TMDB(
+  //TMDB instance
   ApiKeys(
       'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyMDFlZTM3YjU3MTdkNWNkMWJhNjkxZjE0OTQ2NTA4ZiIsInN1YiI6IjYyOTcyZGIzYTQ0ZDA5NTI3NWU0MjFiNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.M_SHrqgHhxXNg9UoO-NAXLQy8q4N3EYA7a7dLCmoVjw',
       'apiReadAccessTokenv4'), //ApiKeys instance with your keys,
@@ -29,12 +31,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: HomePage(),
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: RepositoryProvider(
+          create: (context) => UserRepository(),
+          child: HomePage(),
+        ));
   }
 }

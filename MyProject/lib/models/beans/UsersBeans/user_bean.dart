@@ -1,7 +1,8 @@
 
-import 'package:myproject/beans/UsersBeans/address.dart';
-import 'package:myproject/beans/UsersBeans/company.dart';
 
+
+import 'package:myproject/models/beans/UsersBeans/address.dart';
+import 'package:myproject/models/beans/UsersBeans/company.dart';
 class UserBean {
   int id;
   String name;
