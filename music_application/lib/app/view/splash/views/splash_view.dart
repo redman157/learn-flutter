@@ -5,6 +5,7 @@ import 'package:lottie/lottie.dart';
 import 'package:music_application/app/base/base_view.dart';
 import 'package:music_application/app/routers/app_pages.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
+import 'package:music_application/services/auth_service.dart';
 
 import '../../../../utils/images.dart';
 import '../controllers/splash_controller.dart';
@@ -13,13 +14,14 @@ class SplashView extends GetView<SplashService> {
   const SplashView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // return _screenLoading();
     return FutureBuilder<void>(
         key: const ValueKey('initFuture'),
         future: Get.find<SplashService>().init(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
             Future.delayed(const Duration(milliseconds: 500), () {
-              Get.offAndToNamed(Routes.ROOT);
+              Get.offAllNamed(Routes.ROOT);
             });
           }
           return _screenLoading();

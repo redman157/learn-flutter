@@ -4,6 +4,7 @@ import 'package:music_application/app/routers/app_pages.dart';
 import 'package:music_application/app/view/root/views/root_view.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
 import 'package:music_application/app/view/splash/views/splash_view.dart';
+import 'package:music_application/services/auth_service.dart';
 void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
@@ -14,11 +15,11 @@ void main() {
     initialRoute: AppPages.INITIAL,
     initialBinding: BindingsBuilder(
           () {
-        // Get.put(SplashService());
-        // Get.put(AuthService());
+        Get.put(SplashService());
+        Get.put(AuthService());
       },
     ),
-   /* builder: (context, child) {
+  /*  builder: (context, child) {
       return FutureBuilder<void>(
         key: const ValueKey('initFuture'),
         future: Get.find<SplashService>().init(),

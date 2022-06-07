@@ -5,39 +5,31 @@ import 'package:get/get.dart';
 import 'package:music_application/app/base/base_view.dart';
 import 'package:music_application/app/routers/app_log.dart';
 import 'package:music_application/app/routers/app_pages.dart';
+import 'package:music_application/app/view/home/views/home_view.dart';
 import 'drawer.dart';
 import 'dart:developer';
 import 'package:music_application/app/view/root/controllers/root_controller.dart';
 
 class RootView extends BaseView<RootController> {
-
-  final sController = Get.find<RootController>();
-
-  RootView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    sController.initCtrl().then((value) => {
-      dLog("RootView: $value")
-    });
-    return Scaffold(
-
-    );
-
     return GetRouterOutlet.builder(
       routerDelegate: Get.rootDelegate,
       builder: (context, delegate, nav) {
         final currentLocation = nav?.location;
+        log("RootView: $currentLocation");
         return Scaffold(
             appBar: AppBar(
               title: Text("$currentLocation"),
               centerTitle: true,
             ),
             body: GetRouterOutlet(
-              initialRoute: Routes.LOGIN,
+              initialRoute: Routes.HOME,
               anchorRoute: Routes.ROOT,
-              delegate: Get.rootDelegate,
+
+              key: Get.nestedKey(Routes.HOME),
               filterPages: (afterAnchor) {
-                dLog( afterAnchor.take(1));
+                dLog("afterAnchor: ${afterAnchor.take(1)}");
                 return afterAnchor.take(1);
               },
             ));

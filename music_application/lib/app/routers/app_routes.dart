@@ -5,6 +5,7 @@ abstract class Routes {
   static const ROOT = _Paths.ROOT;
   static const LOGIN = _Paths.LOGIN;
   static const HOME = _Paths.HOME;
+  static const PROFILE = _Paths.HOME + _Paths.PROFILE;
   static const SEARCH = _Paths.HOME + _Paths.SEARCH;
   static const PLAY_LIST = _Paths.HOME + _Paths.PLAY_LIST;
   static const PLAY_DEATAIL = _Paths.HOME + _Paths.PLAY_DEATAIL;
@@ -24,7 +25,7 @@ abstract class _Paths {
   static const SETTINGS = '/settings';
   static const PRODUCT_DETAILS = '/:productId';
   static const LOGIN = '/login';
-  static const DASHBOARD = '/dashboard';
+  static const DASHBOARD = '/search';
   static const PLAY_LIST = '/playlist';
   static const PLAY_DEATAIL = '/playdetail';
   static const SEARCH = '/search';
