@@ -14,11 +14,11 @@ void main() {
     initialRoute: AppPages.INITIAL,
     initialBinding: BindingsBuilder(
           () {
-        Get.put(SplashService());
+        // Get.put(SplashService());
         // Get.put(AuthService());
       },
     ),
-    builder: (context, child) {
+   /* builder: (context, child) {
       return FutureBuilder<void>(
         key: const ValueKey('initFuture'),
         future: Get.find<SplashService>().init(),
@@ -29,6 +29,6 @@ void main() {
           return const SplashView();
         },
       );
-    },
+    },*/
   ));
 }

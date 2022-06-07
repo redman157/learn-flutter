@@ -1,9 +1,10 @@
 part of 'app_pages.dart';
 
 abstract class Routes {
+  static const SPLASH = _Paths.SPLASH;
   static const ROOT = _Paths.ROOT;
   static const LOGIN = _Paths.LOGIN;
-  static const HOME = _Paths.LOGIN + _Paths.HOME;
+  static const HOME = _Paths.HOME;
   static const SEARCH = _Paths.HOME + _Paths.SEARCH;
   static const PLAY_LIST = _Paths.HOME + _Paths.PLAY_LIST;
   static const PLAY_DEATAIL = _Paths.HOME + _Paths.PLAY_DEATAIL;
@@ -16,6 +17,7 @@ abstract class Routes {
 
 abstract class _Paths {
   static const ROOT = '/';
+  static const SPLASH = '/splash';
   static const HOME = '/home';
   static const PRODUCTS = '/products';
   static const PROFILE = '/profile';

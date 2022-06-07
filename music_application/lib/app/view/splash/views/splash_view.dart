@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:music_application/app/base/base_view.dart';
+import 'package:music_application/app/routers/app_pages.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
 
 import '../../../../utils/images.dart';
@@ -9,9 +11,23 @@ import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashService> {
   const SplashView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<void>(
+        key: const ValueKey('initFuture'),
+        future: Get.find<SplashService>().init(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            Future.delayed(const Duration(milliseconds: 500), () {
+              Get.offAndToNamed(Routes.ROOT);
+            });
+          }
+          return _screenLoading();
+        }
+    );
+  }
+
+  Widget _screenLoading(){
     return Scaffold(
       body: Stack(
         children: [
@@ -29,7 +45,7 @@ class SplashView extends GetView<SplashService> {
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
-                    child: const CircularProgressIndicator(),
+                    child: Images.progress,
                   )
                 ],
               ),
@@ -40,7 +56,7 @@ class SplashView extends GetView<SplashService> {
             child: Container(
               padding: const EdgeInsets.all(10),
               child:
-                Obx(
+              Obx(
                     () => Text(
                   controller.welcomeStr[controller.activeStr.value],
                   style: TextStyle(fontFamily: 'HelveticaNeue', fontSize: 12),

@@ -9,7 +9,7 @@ class HomeView extends BaseView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(Get.currentRoute),
+        child: Text("HomeView"),
       ),
     );
   }
