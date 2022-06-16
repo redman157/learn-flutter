@@ -1,14 +1,17 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_application/app/base/base_controller.dart';
 import 'package:music_application/app/routers/app_log.dart';
 import 'package:music_application/app/routers/app_pages.dart';
 
-class SplashController extends BaseController {
+class SplashController extends BaseController  {
   final welcomeStr = ['Music for life'];
   final activeStr = 0.obs;
+  late final AnimationController _animationController;
+
   final _loading = Timer(const Duration(seconds: 5), () {
     Get.offAllNamed(Routes.HOME);
   });
@@ -24,6 +27,7 @@ class SplashController extends BaseController {
   @override
   void onInit() {
     log("QQQ SplashController: onInit");
+
     super.onInit();
   }
 

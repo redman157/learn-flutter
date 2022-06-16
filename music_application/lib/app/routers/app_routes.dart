@@ -4,11 +4,11 @@ abstract class Routes {
   static const SPLASH = _Paths.SPLASH;
   static const ROOT = _Paths.ROOT;
   static const LOGIN = _Paths.LOGIN;
-  static const HOME = _Paths.HOME;
-  static const PROFILE = _Paths.HOME + _Paths.PROFILE;
-  static const SEARCH = _Paths.HOME + _Paths.SEARCH;
-  static const PLAY_LIST = _Paths.HOME + _Paths.PLAY_LIST;
-  static const PLAY_DEATAIL = _Paths.HOME + _Paths.PLAY_DEATAIL;
+  static const ROOT_HOME = _Paths.ROOT_HOME;
+  static const HOME = _Paths.ROOT_HOME + _Paths.HOME;
+  static const SEARCH = _Paths.ROOT_HOME + _Paths.SEARCH;
+  static const PLAY_LIST = _Paths.ROOT_HOME + _Paths.PLAY_LIST;
+  static const PLAY_DEATAIL = _Paths.ROOT_HOME + _Paths.PLAY_DEATAIL;
 
   Routes._();
   static String LOGIN_THEN(String afterSuccessfulLogin) =>
@@ -20,6 +20,7 @@ abstract class _Paths {
   static const ROOT = '/';
   static const SPLASH = '/splash';
   static const HOME = '/home';
+  static const ROOT_HOME = '/root_home';
   static const PRODUCTS = '/products';
   static const PROFILE = '/profile';
   static const SETTINGS = '/settings';

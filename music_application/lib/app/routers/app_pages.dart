@@ -2,22 +2,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:music_application/app/middleware/auth_middleware.dart';
 import 'package:music_application/app/view/home/bindings/home_binding.dart';
-import 'package:music_application/app/view/home/controllers/home_controller.dart';
+import 'package:music_application/app/view/home/bindings/main_home_binding.dart';
+import 'package:music_application/app/view/home/controllers/main_home_controller.dart';
 import 'package:music_application/app/view/home/views/home_view.dart';
+import 'package:music_application/app/view/home/views/main_home_view.dart';
 import 'package:music_application/app/view/login/bindings/login_binding.dart';
 import 'package:music_application/app/view/login/views/login_view.dart';
-import 'package:music_application/app/view/profile/bindings/profile_binding.dart';
-import 'package:music_application/app/view/profile/views/profile_view.dart';
+import 'package:music_application/app/view/home/bindings/play_list_binding.dart';
+import 'package:music_application/app/view/home/views/play_list_view.dart';
 import 'package:music_application/app/view/root/views/root_view.dart';
-import 'package:music_application/app/view/search/bindings/search_binding.dart';
-import 'package:music_application/app/view/search/views/search_view.dart';
+import 'package:music_application/app/view/home/bindings/search_binding.dart';
+import 'package:music_application/app/view/home/views/search_view.dart';
 import 'package:music_application/app/view/splash/bindings/splash_binding.dart';
 import 'package:music_application/app/view/splash/views/splash_view.dart';
 
 import '../view/root/bindings/root _binding.dart';
 
 part 'app_routes.dart';
-
+typedef BindingCreator<S extends Bindings> = S Function();
 class AppPages {
   AppPages._();
 
@@ -45,11 +47,16 @@ class AppPages {
         ),
         GetPage(
             preventDuplicates: true,
-            name: Routes.HOME,
-            page: () => HomeView(),
-            bindings: [HomeBinding()],
+            name: Routes.ROOT_HOME,
+            page: () => MainHomeView(),
+            bindings: [MainHomeBinding()],
             title: null,
             children: [
+              GetPage(
+                name: _Paths.HOME,
+                page: () => HomeView(),
+                bindings: [HomeBinding()],
+              ),
               GetPage(
                 name: _Paths.PLAY_LIST,
                 page: () => ProfileView(),

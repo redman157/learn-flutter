@@ -18,7 +18,7 @@ class SplashService extends GetxService {
 
   Future<void> _initFunction() async {
     final t = Timer.periodic(
-      Duration(milliseconds: 1500),
+      Duration(seconds: 4),
       (t) => _changeActiveString(),
     );
     //simulate some long running operation

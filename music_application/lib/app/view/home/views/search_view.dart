@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:music_application/app/view/home/controllers/search_controller.dart';
 
-import '../controllers/search_controller.dart';
 
 class SearchView extends GetView<SearchController> {
   @override
@@ -14,7 +14,7 @@ class SearchView extends GetView<SearchController> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Search is working',
+                'SearchView',
                 style: TextStyle(fontSize: 20),
               ),
               Text('Time: ${controller.now.value.toString()}'),

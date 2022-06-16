@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_application/app/routers/app_pages.dart';
 
-import '../controllers/profile_controller.dart';
+import '../controllers/play_list_controller.dart';
 
 class ProfileView extends GetView<ProfileController> {
   @override
