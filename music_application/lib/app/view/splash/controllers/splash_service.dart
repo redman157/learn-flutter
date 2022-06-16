@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:async/async.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SplashService extends GetxService {
   final welcomeStr = ['Âm Nhạc Là Nơi Kết Nối Tâm Hồn','Âm Nhạc Là Món Ăn Tinh Thần!','Âm Nhạc Là Liều Thuốc Trái Tim'];
@@ -12,6 +13,7 @@ class SplashService extends GetxService {
   @override
   void onInit() {
     super.onInit();
+
   }
 
   final memo = AsyncMemoizer<void>();
@@ -26,24 +28,38 @@ class SplashService extends GetxService {
   Future<void> _initFunction() async {
     _isLoading = true;
     var songs;
- /*   String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await SimplePermissions.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-    platformVersion;*/
-    final t = Timer.periodic(
+/*
+    final timer =  Timer.periodic(
       const Duration(seconds: 4),
           (t) => {
         _changeActiveString()
       },
     );
-    t.cancel();
-    //simulate some long running operation
-    await Future.delayed(Duration(seconds: 5));
-    //cancel the timer once we are done
+*/
 
+    final timer =  Timer.periodic(
+      const Duration(seconds: 4),
+          (t) => {
+        _changeActiveString()
+      },
+    );
+    var request = requestPermission();
+    if(await Permission.storage.isGranted){
+
+
+    }
+    if(_isLoading){
+      timer.cancel();
+    }
+
+
+  }
+
+  Future<Map<Permission, PermissionStatus>> requestPermission() async{
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+        Permission.storage,
+    ].request();
+    return statuses;
   }
 }

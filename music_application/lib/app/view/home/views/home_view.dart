@@ -1,16 +1,16 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:music_application/app/view/home/controllers/home_controller.dart';
 
-class HomeView extends GetView<HomeController>{
+class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Center(
+      backgroundColor: Colors.deepPurple,
+      body: Center(
         child: Obx(
-              () => Column(
+          () => Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
@@ -24,5 +24,4 @@ class HomeView extends GetView<HomeController>{
       ),
     );
   }
-  
 }

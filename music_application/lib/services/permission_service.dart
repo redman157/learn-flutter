@@ -1,5 +1,6 @@
 
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class PermissionService extends GetxService{
   @override
@@ -8,6 +9,10 @@ class PermissionService extends GetxService{
     super.onInit();
   }
   initPlatformState() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.location,
+      Permission.storage,
+    ].request();
 
   }
 
