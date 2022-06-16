@@ -4,7 +4,7 @@ import 'package:music_application/app/routers/app_pages.dart';
 
 import '../controllers/play_list_controller.dart';
 
-class ProfileView extends GetView<ProfileController> {
+class PlayListView extends GetView<ProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,7 +14,7 @@ class ProfileView extends GetView<ProfileController> {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              "ProfileView",
+              "PlayListView",
               style: TextStyle(fontSize: 20),
             ),
             MaterialButton(

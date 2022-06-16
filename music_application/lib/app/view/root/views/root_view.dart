@@ -26,6 +26,7 @@ class RootView extends BaseView<RootController> {
             body: GetRouterOutlet(
               initialRoute: Routes.ROOT_HOME,
               anchorRoute: Routes.ROOT,
+              delegate: delegate,
               key: Get.nestedKey(Routes.ROOT_HOME),
               filterPages: (afterAnchor) {
                 dLog("afterAnchor: ${afterAnchor.take(1)}");

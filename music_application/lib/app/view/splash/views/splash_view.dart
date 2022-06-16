@@ -3,33 +3,22 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:music_application/app/base/base_view.dart';
+import 'package:music_application/app/routers/app_log.dart';
 import 'package:music_application/app/routers/app_pages.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
 import 'package:music_application/services/auth_service.dart';
 
 import '../../../../utils/images.dart';
-import '../controllers/splash_controller.dart';
 
 class SplashView extends GetView<SplashService> {
   const SplashView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // return _screenLoading();
-    return FutureBuilder<void>(
-        key: const ValueKey('initFuture'),
-        future: Get.find<SplashService>().init(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            Future.delayed(const Duration(milliseconds: 500), () {
-              Get.offAllNamed(Routes.ROOT);
-            });
-          }
-          return _screenLoading();
-        }
-    );
+    return _screenLoading();
   }
 
-  Widget _screenLoading(){
+  Widget _screenLoading() {
     return Scaffold(
       body: Stack(
         children: [
@@ -57,9 +46,8 @@ class SplashView extends GetView<SplashService> {
             alignment: Alignment.bottomCenter,
             child: Container(
               padding: const EdgeInsets.all(10),
-              child:
-              Obx(
-                    () => Text(
+              child: Obx(
+                () => Text(
                   controller.welcomeStr[controller.activeStr.value],
                   style: TextStyle(fontFamily: 'HelveticaNeue', fontSize: 12),
                 ),

@@ -19,11 +19,13 @@ import 'package:music_application/app/view/splash/views/splash_view.dart';
 import '../view/root/bindings/root _binding.dart';
 
 part 'app_routes.dart';
+
 typedef BindingCreator<S extends Bindings> = S Function();
+
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.SPLASH;
+  static const INITIAL = Routes.ROOT;
   static final routes = [
     GetPage(
       name: Routes.ROOT,
@@ -41,25 +43,20 @@ class AppPages {
           bindings: [LoginBinding()],
         ),
         GetPage(
-          name: Routes.SPLASH,
-          page: () => SplashView(),
-          bindings: [SplashBinding()],
-        ),
-        GetPage(
             preventDuplicates: true,
             name: Routes.ROOT_HOME,
             page: () => MainHomeView(),
             bindings: [MainHomeBinding()],
-            title: null,
             children: [
               GetPage(
                 name: _Paths.HOME,
                 page: () => HomeView(),
                 bindings: [HomeBinding()],
+
               ),
               GetPage(
                 name: _Paths.PLAY_LIST,
-                page: () => ProfileView(),
+                page: () => PlayListView(),
                 bindings: [ProfileBinding()],
               ),
               GetPage(
