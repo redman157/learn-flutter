@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_application/app/routers/app_pages.dart';
-import 'package:music_application/app/view/root/views/root_view.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
 import 'package:music_application/app/view/splash/views/splash_view.dart';
 import 'package:music_application/services/auth_service.dart';
+import 'package:music_application/services/media_service.dart';
+
 void main() {
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,
@@ -14,7 +15,8 @@ void main() {
     getPages: AppPages.routes,
     initialRoute: AppPages.INITIAL,
     initialBinding: BindingsBuilder(
-          () {
+      () {
+        Get.put(MediaService());
         Get.put(SplashService());
         Get.put(AuthService());
       },

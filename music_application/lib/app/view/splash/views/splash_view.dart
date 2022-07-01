@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import 'package:music_application/app/base/base_view.dart';
-import 'package:music_application/app/routers/app_log.dart';
-import 'package:music_application/app/routers/app_pages.dart';
 import 'package:music_application/app/view/splash/controllers/splash_service.dart';
-import 'package:music_application/services/auth_service.dart';
 
 import '../../../../utils/images.dart';
 

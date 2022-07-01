@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:music_application/app/base/base_view.dart';
 import 'package:music_application/app/routers/app_log.dart';
 import 'package:music_application/app/view/login/controller/login_controller.dart';
-import 'package:music_application/utils/fonts.dart';
+import 'package:music_application/utils/fonts_picker.dart';
 import 'package:music_application/utils/images.dart';
 
 class LoginView extends BaseView<LoginController> {
@@ -39,7 +39,7 @@ class LoginView extends BaseView<LoginController> {
                         child: Text(
                           "Âm nhạc dựa \ntrên tâm hồn \ncủa bạn",
                           style: TextStyle(
-                              fontFamily: Fonts.HelveticaNeue,
+                              fontFamily: FontsPicker.HelveticaNeue,
                               fontSize: 37,
                               color: const Color.fromRGBO(28, 10, 65, 1)),
                         ),
@@ -71,7 +71,7 @@ class LoginView extends BaseView<LoginController> {
                               margin: const EdgeInsets.only(left: 20),
                               child: Text('Tiếp tục với Facebook',
                                   style: TextStyle(
-                                      fontFamily: Fonts.HelveticaNeue,
+                                      fontFamily: FontsPicker.HelveticaNeue,
                                       fontSize: 14,
                                       color: Colors.white)),
                             ),
@@ -97,7 +97,7 @@ class LoginView extends BaseView<LoginController> {
                             margin: const EdgeInsets.only(left: 20),
                             child: Text('Tiếp tục với Google',
                                 style: TextStyle(
-                                    fontFamily: Fonts.HelveticaNeue,
+                                    fontFamily: FontsPicker.HelveticaNeue,
                                     fontSize: 14,
                                     color:
                                         const Color.fromRGBO(28, 10, 65, 1))),
@@ -113,7 +113,7 @@ class LoginView extends BaseView<LoginController> {
                       TextSpan(
                         text: 'Bằng cách tiếp tục, bạn đồng ý với ',
                         style: TextStyle(
-                            fontFamily: Fonts.HelveticaNeue,
+                            fontFamily: FontsPicker.HelveticaNeue,
                             fontSize: 12,
                             color: const Color.fromRGBO(28, 10, 65, 1)),
                         children: const [
