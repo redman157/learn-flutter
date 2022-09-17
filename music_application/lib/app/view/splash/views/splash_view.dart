@@ -27,11 +27,11 @@ class SplashView extends GetView<SplashService> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
-                    child: Images.logo,
+                    child: ImageUtils.logo,
                   ),
                   Container(
                     margin: const EdgeInsets.only(top: 20),
-                    child: Images.progress,
+                    child: ImageUtils.progress,
                   )
                 ],
               ),

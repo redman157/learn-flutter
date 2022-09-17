@@ -22,7 +22,7 @@ class LoginView extends BaseView<LoginController> {
               child: SizedBox(
                 width: 50,
                 height: 60,
-                child: Images.logo,
+                child: ImageUtils.logo,
               ),
             ),
             Expanded(
@@ -30,7 +30,7 @@ class LoginView extends BaseView<LoginController> {
                 child: Stack(alignment: Alignment.centerLeft, children: [
                   Align(
                     alignment: Alignment.topRight,
-                    child: Image.asset(Images.backGroundLogin),
+                    child: Image.asset(ImageUtils.backGroundLogin),
                   ),
                   Align(
                       alignment: Alignment.topLeft,
@@ -62,7 +62,7 @@ class LoginView extends BaseView<LoginController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Images.ic_facebook,
+                          ImageUtils.ic_facebook,
                           GestureDetector(
                             onTap: () {
                               dLog('Click Facebook');
@@ -92,7 +92,7 @@ class LoginView extends BaseView<LoginController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Images.ic_google,
+                          ImageUtils.ic_google,
                           Container(
                             margin: const EdgeInsets.only(left: 20),
                             child: Text('Tiếp tục với Google',

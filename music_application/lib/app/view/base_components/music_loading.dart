@@ -1,8 +1,12 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MusicLoading extends StatelessWidget {
-  const MusicLoading({Key? key}) : super(key: key);
+  final double sizeHeight;
+  const MusicLoading({Key? key, required this.sizeHeight}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
@@ -11,17 +15,16 @@ class MusicLoading extends StatelessWidget {
       child: Column(
         children: [
           Container(
+            height: sizeHeight,
+            width: double.infinity,
             margin: const EdgeInsets.all(10),
             decoration: const BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.all(Radius.circular(10))),
             child: ClipRRect(
               borderRadius: const BorderRadius.all(Radius.circular(10)),
-              child: AspectRatio(
-                aspectRatio: 16 / 9,
-                child: Container(
-                  color: Colors.grey,
-                ),
+              child: Container(
+                color: Colors.grey,
               ),
             ),
           ),
