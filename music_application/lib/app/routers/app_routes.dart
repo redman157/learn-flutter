@@ -8,7 +8,7 @@ abstract class Routes {
   static const HOME = _Paths.ROOT_HOME + _Paths.HOME;
   static const SEARCH = _Paths.ROOT_HOME + _Paths.SEARCH;
   static const PLAY_LIST = _Paths.ROOT_HOME + _Paths.PLAY_LIST;
-  static const PLAY_DEATAIL = _Paths.ROOT_HOME + _Paths.PLAY_DEATAIL;
+  static const PLAY_DEATAIL = _Paths.ROOT + _Paths.PLAY_DEATAIL;
 
   Routes._();
   static String LOGIN_THEN(String afterSuccessfulLogin) =>
@@ -20,7 +20,7 @@ abstract class _Paths {
   static const ROOT = '/';
   static const SPLASH = '/splash';
   static const HOME = '/home';
-  static const ROOT_HOME = '/root_home';
+  static const ROOT_HOME = '${ROOT}root_home';
   static const PRODUCTS = '/products';
   static const PROFILE = '/profile';
   static const SETTINGS = '/settings';
@@ -28,6 +28,6 @@ abstract class _Paths {
   static const LOGIN = '/login';
   static const DASHBOARD = '/search';
   static const PLAY_LIST = '/playlist';
-  static const PLAY_DEATAIL = '/playdetail';
+  static const PLAY_DEATAIL = 'playDetail';
   static const SEARCH = '/search';
 }

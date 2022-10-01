@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:music_application/app/view/base_components/music_loading.dart';
+import 'package:music_application/app/routers/app_log.dart';
+import 'package:music_application/app/routers/app_pages.dart';
+import 'package:music_application/app/view/base_components/shimmer.dart';
 import 'package:music_application/app/view/home/components/selection_list.dart';
 import 'package:music_application/app/view/home/components/selection_title.dart';
 import 'package:music_application/app/view/home/controllers/home_controller.dart';
@@ -36,16 +38,20 @@ class HomeView extends GetView<HomeController> {
     return Obx(() {
       if (controller.musics.isNotEmpty) {
         return SectionList(
-          listMusic: controller.musics,
-          orientation: ListOrientation.Horizontal,
-        );
+            listMusic: controller.musics,
+            orientation: ListOrientation.Horizontal,
+            onClickItem: (songInfo) {
+              dLog("_musicBanner: ${songInfo.title}");
+              Get.toNamed(Routes.PLAY_DETAILS("12"));
+            });
       } else {
-        return const MusicLoading(sizeHeight: 300);
+        return ShimmerLoading(orientation: ShimmerOrientation.Horizontal, numLine: 1);
       }
     });
   }
 
-  Widget _musicList() {
+  Widget? _musicList() {
+    var item;
     return Obx(() {
       if (controller.musics.isNotEmpty) {
         return SectionList(
@@ -53,7 +59,7 @@ class HomeView extends GetView<HomeController> {
           orientation: ListOrientation.Vertical,
         );
       } else {
-        return const MusicLoading(sizeHeight: 300);
+        return ShimmerLoading(orientation: ShimmerOrientation.Vertical, numLine: 1);
       }
     });
   }

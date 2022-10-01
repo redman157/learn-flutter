@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music_application/app/view/base_components/base_textview.dart';
+import 'package:music_application/app/view/base_components/base_text.dart';
 import 'package:music_application/utils/colors_picker.dart';
-import 'package:music_application/utils/dimen.dart';
+import 'package:music_application/utils/dimensions.dart';
 import 'package:music_application/utils/fonts_picker.dart';
 
 class SectionTitle extends StatelessWidget {
@@ -22,7 +22,7 @@ class SectionTitle extends StatelessWidget {
       return Center(
           child: Text(title,
               style: TextStyle(
-                  fontSize: Dimens.fontMedium,
+                  fontSize: Dimensions.fontMedium,
                   fontFamily: FontsPicker.HelveticaNeue,
                   color: ColorPicker.DarkIndigo)));
     } else {
@@ -33,7 +33,7 @@ class SectionTitle extends StatelessWidget {
           Text(
             subTitle.toString(),
             style: TextStyle(
-                fontSize: Dimens.fontVerySmall,
+                fontSize: Dimensions.fontVerySmall,
                 letterSpacing: 0,
                 fontFamily: FontsPicker.HelveticaNeue,
                 color: ColorPicker.Sapphire),

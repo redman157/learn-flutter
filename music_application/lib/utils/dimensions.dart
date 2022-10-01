@@ -1,5 +1,5 @@
 
-class Dimens{
+class Dimensions{
   /* padding size */
   static double spaceSmall = 10;
   static double spaceNormal = 20;

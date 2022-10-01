@@ -6,7 +6,7 @@ import 'package:music_application/app/routers/app_log.dart';
 import 'package:music_application/app/routers/app_pages.dart';
 
 
-class RootController extends BaseController{
+class   RootController extends BaseController{
   final isValidate = false;
   late String _route;
   @override

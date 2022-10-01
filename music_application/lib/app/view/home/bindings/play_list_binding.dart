@@ -2,11 +2,11 @@ import 'package:get/get.dart';
 
 import '../controllers/play_list_controller.dart';
 
-class ProfileBinding extends Bindings {
+class PlayListBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ProfileController>(
-      () => ProfileController(),
+    Get.lazyPut<PlayListController>(
+      () => PlayListController(),
     );
   }
 }

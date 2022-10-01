@@ -4,7 +4,7 @@ import 'package:music_application/app/routers/app_pages.dart';
 
 import '../controllers/play_list_controller.dart';
 
-class PlayListView extends GetView<ProfileController> {
+class PlayListView extends GetView<PlayListController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_audio_query/flutter_audio_query.dart';
+import 'package:music_application/app/routers/app_log.dart';
+import 'package:music_application/app/view/base_components/shimmer.dart';
 import 'package:music_application/app/view/home/components/music_item.dart';
+import 'package:music_application/utils/callback.dart';
 
 enum ListOrientation { Vertical, Horizontal }
 
 class SectionList extends StatefulWidget {
   final List<SongInfo> listMusic;
   final ListOrientation orientation;
+  final ObjectCallBack<SongInfo>? onClickItem;
 
   const SectionList(
       {Key? key,
       required this.listMusic,
-      required this.orientation})
+      required this.orientation,
+      this.onClickItem})
       : super(key: key);
 
   @override
@@ -22,26 +27,45 @@ class SectionList extends StatefulWidget {
 
 class _SelectionListState extends State<SectionList> {
   int _currentIndex = 0;
-  late List<Widget> _listMusicItem;
 
   @override
   void initState() {
-    _listMusicItem =
-        widget.listMusic.map((e) => MusicItem(songInfo: e)).toList();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    var ori = (widget.orientation == ListOrientation.Horizontal)
+    var oriList = (widget.orientation == ListOrientation.Horizontal)
         ? Axis.horizontal
         : Axis.vertical;
-    return ListView(
-          scrollDirection: ori,
-          shrinkWrap: true,
-          padding: const EdgeInsets.all(10),
-          children: _listMusicItem,
+
+    var oriShimmer = (widget.orientation == ListOrientation.Horizontal)
+        ? ShimmerOrientation.Horizontal
+        : ShimmerOrientation.Vertical;
+
+
+    var list = ListView.builder(
+      scrollDirection: oriList,
+      shrinkWrap: true,
+      primary: true,
+      itemBuilder: (_, i) {
+        return MusicItem(
+          songInfo: widget.listMusic[i],
+          numLine: 2,
+          orientation: oriShimmer,
+          onTap: () {
+            dLog("onTap MusicItem: ${widget.listMusic[i].title}");
+            if (widget.onClickItem != null) {
+              widget.onClickItem!(widget.listMusic[i]);
+            }
+          },
         );
+      },
+    );
+
+    return Container(
+        padding: const EdgeInsets.all(8),
+        child: list).build(context);
 
     /*ListView.builder(
           shrinkWrap: true,
@@ -51,3 +75,24 @@ class _SelectionListState extends State<SectionList> {
         ));*/
   }
 }
+
+/*Visibility(
+child: Column(
+children: [
+Visibility(
+visible: widget.isLoading == false,
+maintainSize: true,
+maintainAnimation: true,
+maintainState: true,
+maintainSemantics: true,
+child: list),
+Visibility(
+visible: widget.isLoading == true,
+maintainSize: true,
+maintainAnimation: true,
+maintainState: true,
+maintainSemantics: true,
+child: shimmer)
+],
+),
+)*/
